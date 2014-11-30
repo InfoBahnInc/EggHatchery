@@ -51,8 +51,8 @@ public class SmsBean {
 		try {
 			URL url = new URL(SMS_URL);
 			StringBuilder builder = new StringBuilder();
-			builder.append("USERNAME=megabyte@me.com&");
-			builder.append("PASSWORD=bender&ACTION=send&");
+			builder.append("USERNAME=youremail@youremail.com&");
+			builder.append("PASSWORD=yourpassword&ACTION=send&");
 			builder.append("ORIGINATOR=shared&");
 			builder.append("RECIPIENT=0413529023&");
 			builder.append("MESSAGE_TEXT=");
