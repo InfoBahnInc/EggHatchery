@@ -10,61 +10,9 @@
 	cursor: pointer;
 }
 
-/* flip the pane when hovered */
-.flip-container.hover .flipper 
+.carousel-inner > .item
 {
-  transform: rotateY(180deg);
-  transform-origin: 61% 50%;
-}
-
-.flip-container, .front, .back 
-{
-  text-align: center;
-  vertical-align: middle;
-  width: 100px;
-  height: 120px;
-  border-radius: 10px;
-  margin-left: 10px;
-}
-
-.front, .back
-{
-  border: solid 1px black;
-}
-
-/* flip speed goes here */
-.flipper 
-{
-  transition: 0.6s;
-  transform-style: preserve-3d;
-
-  position: relative;
-}
-
-/* hide back of pane during swap */
-.front, .back 
-{
-  backface-visibility: hidden;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/* front pane, placed above back */
-.front 
-{
-  background-color: #00FF00;
-  z-index: 2;
-  /* for firefox 31 */
-  transform: rotateY(0deg);
-}
-
-/* back, initially hidden pane */
-.back 
-{
-  background-color: #FF0000;
-  transform: rotateY(180deg);
+  transform-origin: 100% 50%;
 }
 
 .tileWall
@@ -78,11 +26,20 @@
   height: 140px;
   border-radius: 10px;
   text-align: center;
-  border: solid 1px black;
   color: white;
   left: 50% !important;
   margin-left: -60px;
   margin-bottom: 10px;
+}
+
+.tile.active
+{
+  border: solid 1px black;
+}
+
+.tile.left > .tileHint
+{
+  display: none;
 }
 
 .tile-name {
