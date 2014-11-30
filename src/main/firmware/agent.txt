@@ -1,0 +1,30 @@
+http.onrequest( function( request, response ) {
+    try {
+        // Sense
+        
+        if ( "temp.read" in request.query ) {
+            device.send( "temp.read", null );
+            device.on("temp.readed", function( passed_value ) {
+                response.send( 200, passed_value );
+            } );
+            return;
+        }
+        
+        // Control
+        if ( "sweep.angle" in request.query ) {
+            device.send( "sweep.angle", request.query["sweep.angle"].tofloat() );
+        } else if ( "fan.on" in request.query ) {
+            device.send( "fan.start", null );
+        } else if ( "fan.off" in request.query ) {
+            device.send( "fan.stop", null );
+        } else if ( "heater.on" in request.query ) {
+            device.send( "heater.on", null );
+        }
+        else if ( "heater.off" in request.query ) {
+            device.send( "heater.off", null );
+        }
+        response.send( 200, "OK" );
+    } catch( ex ) {
+        response.send( 500, ex );
+    }
+} );
