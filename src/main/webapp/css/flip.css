@@ -1,0 +1,119 @@
+/* entire container, keeps perspective */
+.flip-container 
+{
+  display: inline-block;
+  perspective: 1000;
+}
+
+.carousel-inner:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* flip the pane when hovered */
+.flip-container.hover .flipper 
+{
+  transform: rotateY(180deg);
+  transform-origin: 61% 50%;
+}
+
+.flip-container, .front, .back 
+{
+  text-align: center;
+  vertical-align: middle;
+  width: 100px;
+  height: 120px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.front, .back
+{
+  border: solid 1px black;
+}
+
+/* flip speed goes here */
+.flipper 
+{
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back 
+{
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front 
+{
+  background-color: #00FF00;
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back 
+{
+  background-color: #FF0000;
+  transform: rotateY(180deg);
+}
+
+.tileWall
+{
+  display: inline-block;
+}
+
+.tile
+{
+  width: 120px;
+  height: 140px;
+  border-radius: 10px;
+  text-align: center;
+  border: solid 1px black;
+  color: white;
+  left: 50% !important;
+  margin-left: -60px;
+  margin-bottom: 10px;
+}
+
+.tile-name {
+	font-weight: bold;
+	text-align: center;
+	line-height: 0.5em;
+	margin-bottom: 10px;
+	min-width: 100px;	
+}
+
+.tileHint {
+	width: 25px;
+	font-size: 8pt;
+	position: absolute;
+	top: 100px;
+	left: 10px;
+	color: #444;
+	text-align: left;	
+}
+
+div.tileValue
+{
+  font-weight: bold;
+  vertical-align: middle;
+  font-size: xx-large;
+}
+
+div.tileLabel
+{
+  font-size: medium;
+  position: relative;
+  top: -10px;
+}
+

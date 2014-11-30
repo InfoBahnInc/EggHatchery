@@ -1,0 +1,139 @@
+.view-animate-container {
+	position: relative;
+	background: white;
+}
+
+.view-animate.ng-enter,.view-animate.ng-leave {
+	-webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	-webkit-transform: translatez(0);
+	display: block;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 10px;
+}
+
+.view-animate.ng-enter {
+	left: 100%;
+}
+
+.view-animate.ng-enter.ng-enter-active {
+	left: 0;
+}
+
+.view-animate.ng-leave.ng-leave-active {
+	left: -100%;
+}
+
+/*
+ * Dashboard
+ */
+ 
+.jumbotron {
+	margin-bottom: 15px !important;
+	background-image: url( '../media/schematic.png' );
+	background-repeat: no-repeat;
+	background-position: 99% -15%;
+}
+
+.carousel-inner .tile {
+	background-repeat: no-repeat;
+	background-position: 95% 95%;
+}
+
+.carousel-inner .chick-very-happy {
+	background-color: #5CB85C;
+	background-image: url( '../media/chick-happy.png' );
+	background-size: 45% 50%;
+}
+
+.carousel-inner .chick-happy {
+	background-color: #8DB457;
+	background-image: url( '../media/chick-waiting.png' );
+	background-size: 35% 50%;
+}
+
+.carousel-inner .chick-medium {
+	background-color: #BEB052;
+	background-image: url( '../media/chick-sad.png' );
+	background-size: 50% 50%;
+}
+
+.carousel-inner .chick-sad {
+	background-color: #F0AD4F;
+	background-image: url( '../media/chick-scared.png' );
+	background-size: 40% 50%;
+}
+
+.carousel-inner .chick-very-sad {
+	background-color: #E88F4F;
+	background-image: url( '../media/chick-panic.png' );
+	background-size: 50% 50%;
+}
+
+.carousel-inner .chick-dead {
+	background-color: #E0714F;
+	background-image: url( '../media/chick-panic.png' );
+	background-size: 50% 50%;
+}
+
+.carousel-inner .chick-alert {
+	background-color: #E0714F;
+	background-image: url( '../media/chick-panic.png' );
+	background-size: 50% 50%;
+}
+
+/*
+ * Detail page
+ */
+#device-chart-outer #device-chart {
+	background-repeat: no-repeat;
+	background-position: 95% 80%;
+}
+
+#device-chart-outer .chick-very-happy {
+	background-image: url( '../media/chick-happy.png' );
+}
+
+#device-chart-outer .chick-happy {
+	background-image: url( '../media/chick-waiting.png' );
+}
+
+#device-chart-outer .chick-medium {
+	background-image: url( '../media/chick-sad.png' );
+}
+
+#device-chart-outer .chick-sad {
+	background-image: url( '../media/chick-scared.png' );
+}
+
+#device-chart-outer .chick-very-sad {
+	background-image: url( '../media/chick-panic.png' );
+}
+
+#device-chart-outer .chick-dead {
+	background-image: url( '../media/chick-panic.png' );
+}
+
+#device-chart-outer .chick-alert {
+	background-image: url( '../media/chick-panic.png' );
+}
+
+@media screen and (max-width: 1024px) {
+	#device-chart-outer #device-chart {
+		background-image: none !important
+	}	
+}
+
+.detail-row {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.detail-row .detail-label {
+	font-weight: bold;
+}

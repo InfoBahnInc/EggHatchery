@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="col-md-12" style="text-align: center">
+		<button type="button" class="btn btn-default"
+			ng-click="toggleServo()">Rotate Cradle</button>
+		<button type="button" class="btn btn-default" ng-click="toggleFan()">{{labelFan}}</button>
+		<button type="button" class="btn btn-default" ng-click="toggleHeater()">{{labelHeater}}</button>
+		<a type="button" class="btn btn-danger"
+			href="#/">Back</a>
+	</div>
+</div>
+<div class="row detail-row">
+	<div class="col-sm-2 col-sm-offset-3">
+		<span class="detail-label">
+			Temperature:
+		</span>
+		{{lastTemperature | number:1}}&deg;C
+	</div>
+	<div class="col-sm-2">
+		<span class="detail-label">
+			Humidity:
+		</span>
+		{{lastHumidity | number:0}}%
+	</div>
+	<div class="col-sm-2">
+		<span class="detail-label">
+			Vibrations:
+		</span>
+		{{lastVibration}}
+	</div>
+</div>
+<div class="row">
+	<div id="device-chart-outer" class="col-md-12">
+		<canvas id="device-chart" class="{{creading.Temperature.BackgroundClass}}" width="1200" height="500"></canvas>
+	</div>
+</div>

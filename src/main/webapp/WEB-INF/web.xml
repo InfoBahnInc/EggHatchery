@@ -1,0 +1,23 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+
+	<!-- CORS -->
+
+	<filter>
+		<filter-name>CrossDomainFilter</filter-name>
+		<filter-class>com.hackagong.hatchery.servlet.http.CrossDomainFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CrossDomainFilter</filter-name>
+		<url-pattern>/rest/*</url-pattern>
+	</filter-mapping>
+
+	<!-- JAX-RS -->
+
+	<servlet-mapping>
+		<servlet-name>javax.ws.rs.core.Application</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+
+</web-app>

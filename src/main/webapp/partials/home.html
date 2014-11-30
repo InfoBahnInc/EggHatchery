@@ -1,0 +1,39 @@
+
+<div class="jumbotron">
+	<h1>InfoBahn Hatchery</h1>
+	<h3>Count all your chickens, before they hatch</h3>
+	<div class="alert alert-danger" role="alert" ng-show="error">
+		<strong>Error</strong> {{error}}
+	</div>
+</div>
+
+<div id="deviceList" class="row" style="margin: 0px">
+	<div class="col-lg-2 carousel slide tileWall" data-ride="carousel" ng-repeat="aDevice in Devices">
+		<a ng-href="#/device/{{aDevice.mID}}" class="carousel-inner" role="listbox">
+			<div class="tile item active {{aDevice.Current.Temperature.BackgroundClass}}">
+				<!-- front content -->
+				<div class="tileValue">{{aDevice.Current.Temperature.Value}}&deg;C</div>
+				<div class="tileLabel">temperature</div>
+				<div class="tileHint">ideally 37&deg;</div>
+			</div>
+			<div class="tile item {{aDevice.Current.Humidity.BackgroundClass}}">
+				<!-- back content -->
+				<div class="tileValue">{{aDevice.Current.Humidity.Value}}%</div>
+				<div class="tileLabel">humidity</div>
+				<div class="tileHint">ideally 65%</div>
+			</div>
+			<!-- <div class="tile item {{aDevice.Current.Vibration.BackgroundClass}}">
+				<div class="tileValue">{{aDevice.Current.Vibration.Value}}</div>
+				<div class="tileLabel">vibration</div>
+			</div>
+			<div class="tile item aDevice.Current.LastUpdated.BackgroundClass}}">
+				<div class="tileValue">{{aDevice.Current.LastUpdated.Value}}min</div>
+				<div class="tileLabel">last update</div>
+			</div>-->
+			<div class="tile-name">
+				{{aDevice.mName}}
+			</div>			
+		</a>
+	</div>
+</div>
+
