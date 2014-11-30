@@ -8,32 +8,35 @@
 </div>
 
 <div id="deviceList" class="row" style="margin: 0px">
-	<div class="col-lg-2 carousel slide tileWall" data-ride="carousel" ng-repeat="aDevice in Devices">
+	<div class="carousel slide tileWall col-lg-2" id="carousel_{{aDevice.mID}}" data-ride="carousel" ng-repeat="aDevice in Devices">
 		<a ng-href="#/device/{{aDevice.mID}}" class="carousel-inner" role="listbox">
-			<div class="tile item active {{aDevice.Current.Temperature.BackgroundClass}}">
-				<!-- front content -->
+			<div class="tile {{aDevice.Current.Temperature.BackgroundClass}} item active">
 				<div class="tileValue">{{aDevice.Current.Temperature.Value}}&deg;C</div>
 				<div class="tileLabel">temperature</div>
 				<div class="tileHint">ideally 37&deg;</div>
 			</div>
-			<div class="tile item {{aDevice.Current.Humidity.BackgroundClass}}">
-				<!-- back content -->
+			<div class="tile {{aDevice.Current.Humidity.BackgroundClass}} item">
 				<div class="tileValue">{{aDevice.Current.Humidity.Value}}%</div>
 				<div class="tileLabel">humidity</div>
 				<div class="tileHint">ideally 65%</div>
 			</div>
-			<!-- <div class="tile item {{aDevice.Current.Vibration.BackgroundClass}}">
+			<div class="tile item {{aDevice.DaysUntilHatch.BackgroundClass}}">
+				<div class="tileValue">{{aDevice.DaysUntilHatch.Value}}</div>
+				<div class="tileLabel">days until hatch</div>
+				<div class="tileHint"></div>
+			</div>
+			<div class="tile item {{aDevice.Current.Vibration.BackgroundClass}}">
 				<div class="tileValue">{{aDevice.Current.Vibration.Value}}</div>
 				<div class="tileLabel">vibration</div>
 			</div>
-			<div class="tile item aDevice.Current.LastUpdated.BackgroundClass}}">
+			<div class="tile item {{aDevice.Current.LastUpdated.BackgroundClass}}">
 				<div class="tileValue">{{aDevice.Current.LastUpdated.Value}}min</div>
 				<div class="tileLabel">last update</div>
-			</div>-->
-			<div class="tile-name">
-				{{aDevice.mName}}
-			</div>			
+			</div>
 		</a>
+    <div class="tile-name">
+      {{aDevice.mName}}
+    </div>
 	</div>
 </div>
 

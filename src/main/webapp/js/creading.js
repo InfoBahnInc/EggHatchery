@@ -1,6 +1,9 @@
-function CDevice(pID, pReadings, pName) {
+function CDevice(pID, pStartDate, pReadings, pName) {
 	this.mID = pID;
 	this.mName = pName;
+  this.mStartDate = pStartDate;
+  
+  this.DaysUntilHatch = new CReadingValue(this.getDaysUntilHatch(), this.getDaysUntilHatchClass, "#000000");
 	this.clear();
 
 	for (var i = 0; i < pReadings.length; ++i)
@@ -15,6 +18,20 @@ CDevice.prototype.addReading = function CDevice_addReading(pReading) {
 CDevice.prototype.clear = function CDevice_clear() {
 	this.Readings = [];
 	this.Current = null;
+};
+CDevice.prototype.getDaysUntilHatch = function CDevice_getDaysUntilHatch()
+{
+  var difference = new Date() - this.mStartDate;
+  return (Math.round(difference / (1000 * 60 * 60 * 24) * 10) / 10);
+};
+CDevice.prototype.getDaysUntilHatchClass = function CDevice_getDaysUntilHatchClass(pDaysUntilHatch) 
+{
+  var comparisonValue = Math.round(7 - pDaysUntilHatch);
+  if (comparisonValue < 0) comparisonValue = 0;
+  	if (comparisonValue < CReading.prototype.mClasses.length)
+		return (CReading.prototype.mClasses[comparisonValue]);
+
+	return 'chick-alert';
 };
 
 function CReading(pTimestamp, pTemperature, pHumidity, pVibration) {
@@ -56,15 +73,15 @@ CReading.prototype.getVibrationClass = function CReading_getVibrationClass(
 	return 'chick-very-happy';
 }
 
-CReading.prototype.getLastUpdateClass = function CReading_getLastUpdateClass(
-		pLastUpdated) {
+CReading.prototype.getLastUpdateClass = function CReading_getLastUpdateClass(pLastUpdated) 
+{
 	var comparisonValue = pLastUpdated - 5;
 	if (comparisonValue < 0)
 		comparisonValue = 0;
 	if (comparisonValue < CReading.prototype.mClasses.length)
 		return (CReading.prototype.mClasses[comparisonValue]);
 
-	return ("#D9534F");
+	return ("chick-alert");
 }
 
 function CReadingValue(pValue, pBackgroundClass, pBorderClass) {

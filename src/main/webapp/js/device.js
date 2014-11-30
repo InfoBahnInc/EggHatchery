@@ -25,7 +25,7 @@ app
 					}
 
 					$http
-							.get('/rest/snapshot/recent')
+							.get('http://130.130.165.88:8080/rest/snapshot/recent')
 							.success(
 									function(recentService) {
 
@@ -92,7 +92,7 @@ app
 												function() {
 													$http
 															.get(
-																	'/rest/snapshot/last')
+																	'http://130.130.165.88:8080/rest/snapshot/last')
 															.success(
 																	function(
 																			lastService) {
